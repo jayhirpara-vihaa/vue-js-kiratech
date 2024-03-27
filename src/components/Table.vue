@@ -1,5 +1,6 @@
 <template>
-  <div class="mt-16">
+  <div v-if="isLoading" class="loader"></div>
+  <div v-if="!isLoading" class="mt-16">
     <!-- header -->
     <div class="mx-60 rounded-md bg-white ">
       <div>
@@ -17,6 +18,7 @@
       </div>
     </div>
 
+    
     <!-- data -->
     <div class="mx-60 rounded-md bg-white shadow-md my-3 ">
       <div v-for="(user, index) in users" :key="index" class="card hover:border-2 hover:border-[#60B7D4]">
@@ -36,7 +38,7 @@
     </div>
   </div>
 
-  <div class="flex justify-center my-10">
+  <div v-if="!isLoading"  class="flex justify-center my-10">
     <button @click="prevPage" :disabled="currentPage === 1"
       class="mx-2 bg-[#60B7D4] text-white font-bold py-2 px-4 rounded focus:outline-none">Previous</button>
     <button v-for="page in pageCount" :key="page" @click="goToPage(page)"
@@ -81,7 +83,7 @@
     </div>
   </div>
 
-  <div class="flex justify-center my-10">
+  <div v-if="!isLoading" class="flex justify-center my-10">
     <button @click="handleRefresh()"
       class="mx-4 bg-[#60B7D4] text-white font-bold py-2 px-4 rounded focus:outline-none">
       <span class="pi pi-refresh"></span>
@@ -107,6 +109,7 @@ export default {
       selectedGender: '',
       isPopupOpen: false,
       selectedUser: null,
+      isLoading: true,
     };
   },
   computed: {
@@ -127,7 +130,7 @@ export default {
     // API for Fetching User data
     async fetchUsers(pageNumber) {
       try {
-        console.log("wdsbnadji", pageNumber)
+        this.isLoading = true;
         const resultPerPage = 20;
         const response = await fetch(`https://randomuser.me/api/?page=${pageNumber}&results=${resultPerPage}`);
         const data = await response.json();
@@ -141,6 +144,7 @@ export default {
           age: result.dob.age,
           DOB: result.dob.date
         }));
+        this.isLoading = false;
       } catch (error) {
         console.error('Error fetching users:', error);
       }
@@ -309,5 +313,25 @@ export default {
 
 .nk-vue div {
   display: table-cell;
+}
+
+.loader {
+  border: 10px solid #f3f3f3;
+  border-radius: 50%;
+  border-top: 10px solid #3498db;
+  width: 80px;
+  height: 80px;
+  -webkit-animation: spin 2s linear infinite; /* Safari */
+  animation: spin 2s linear infinite;
+}
+
+@-webkit-keyframes spin {
+  0% { -webkit-transform: rotate(0deg); }
+  100% { -webkit-transform: rotate(360deg); }
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
 }
 </style>
