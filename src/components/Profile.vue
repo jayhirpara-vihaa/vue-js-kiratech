@@ -1,7 +1,7 @@
 <template>
   <div class="bg-[#60B7D4] p-4 shadow-md flex flex-col lg:flex-row items-center lg:space-x-4">
     <!-- User Profile Image -->
-    <div class="lg:absolute bottom-[70%] lg:mx-60 mx-auto lg:mx-0">
+    <div class="absolute bottom-[70%] lg:mx-60 mx-auto">
       <img :src="user.image" alt="Profile Image" class="w-[35%] h-[35%]">
     </div>
 
