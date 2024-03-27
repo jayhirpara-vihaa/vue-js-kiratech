@@ -6,7 +6,7 @@
       <div>
         <div class="flex justify-between w-[100%]">
 
-          <div class="  w-[8%] text-zinc-400 text-left ml-5">Date</div>
+          <div class="  w-[15%] text-zinc-400 text-left ml-5">Date</div>
           <div class="w-[30%] text-zinc-400 text-left">Name</div>
 
           <div class="w-[11%]  text-zinc-400 text-left">Gender</div>
@@ -24,7 +24,7 @@
       <div v-for="(user, index) in users" :key="index" class="card hover:border-2 hover:border-[#60B7D4]">
         <div class="flex justify-between w-[100%] h-7 my-1">
 
-          <div class="text-sm text-zinc-400 w-[8%] text-left">{{ format_date(user.date) }}</div>
+          <div class="text-sm text-zinc-400 w-[15%] text-left">{{ format_date(user.date) }}</div>
           <div class="font-medium hover:font-medium hover:text-[#60B7D4] cursor-pointer w-[30%] text-left"
             @click="openPopup(user)">{{ user.name }}</div>
 
