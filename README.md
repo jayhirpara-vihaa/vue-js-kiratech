@@ -1,38 +1,22 @@
 # front-end-assignment-kiratech
 
-## Project Setup
+### Requirements
 
-```sh
-npm install
-```
+- [Node.js](https://nodejs.org/) v16 or newer.
 
-### Compile and Hot-Reload for Development
+### Installation
 
-```sh
-npm run dev
-```
+- Clone the repo - `https://github.com/jayhirpara-vihaa/vue-js-kiratech.git`.
+- Install project dependencies — `npm install`.
+- Launch the app — `npm run dev`, it will become available at [http://localhost:4173](http://localhost:4173/).
 
-### Type-Check, Compile and Minify for Production
+### Available Scripts
 
-```sh
-npm run build
-```
-
-### Run Unit Tests with [Vitest](https://vitest.dev/)
-
-```sh
-npm run test:unit
-```
-
-### Run End-to-End Tests with [Cypress](https://www.cypress.io/)
-
-```sh
-npm run build
-npm run test:e2e # or `npm run test:e2e:ci` for headless testing
-```
-
-### Lint with [ESLint](https://eslint.org/)
-
-```sh
-npm run lint
-```
+- `dev`
+- `build`
+- `test:unit`
+- `test:e2e`
+- `test:e2e:ci`
+- `build-only`
+- `type-check`
+- `lint`
